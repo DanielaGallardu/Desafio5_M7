@@ -18,7 +18,7 @@ async function handleRegister() {
     successMessage.value = 'Registro exitoso! Redirigiendo a inicio de sesión...';
     setTimeout(() => {
       router.push({ name: 'Login' });
-    }, 2000); // Esperar 2 segundos antes de redirigir
+    }, 1000); // Esperar un segundo de redirigir
   } catch (error) {
     console.error(error);
   }
