@@ -2,7 +2,7 @@
 import { $auth } from '@/firebaseApp';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { ref } from 'vue';
-import { useRouter } from 'vue-router'; // Importar useRouter
+import { useRouter } from 'vue-router';
 import SignWithGoogle from '@/components/SignWithGoogle.vue';
 
 const email = ref('');
@@ -10,11 +10,6 @@ const password = ref('');
 const router = useRouter();
 
 async function handleLogin() {
-  console.log("fsdfsd")
-  console.log(email.value)
-  console.log(password.value)
-
-
   try {
     await signInWithEmailAndPassword($auth, email.value, password.value);
     email.value = '';
@@ -22,7 +17,7 @@ async function handleLogin() {
     router.push({ name: 'home' });
   } catch (error) {
     console.error('Error al iniciar sesión:', error);
-    alert("Error al iniciar sesión,intente nuevamente")
+    alert("Error al iniciar sesión, intente nuevamente");
   }
 }
 </script>
@@ -41,7 +36,7 @@ async function handleLogin() {
       </div>
       <button type="submit" class="btn btn-dark w-100 mb-3">Iniciar Sesión</button>
       <SignWithGoogle />
-      <router-link to="/signup">¿No tienes cuenta? Regístrate aquí</router-link>
+      <router-link to="/signup" class="signup-link">¿No tienes cuenta? Regístrate aquí</router-link>
     </form>
   </div>
 </template>
@@ -49,18 +44,28 @@ async function handleLogin() {
 <style scoped>
 .container {
   max-width: 600px;
-  /* Ancho máximo para el formulario */
   margin-top: 50px;
-  /* Espacio en la parte superior */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
 }
 
 h2 {
   color: #9b1c30;
-  /* Color guinda */
+  text-align: center;
 }
 
-.text-center {
+.signup-link {
+  display: block;
   text-align: center;
-  /* Centrar texto */
+  margin-top: 20px;
+  color: #9b1c30;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.signup-link:hover {
+  text-decoration: underline;
 }
 </style>

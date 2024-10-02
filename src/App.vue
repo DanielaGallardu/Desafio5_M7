@@ -10,13 +10,13 @@ const router = useRouter()
 async function handleSignOut() {
   signOut($auth).then(() => {
     alert('Cerraste Sesión')
-    router.push({ name: 'Login' }) // ¿qué paso con redirección?
+    router.push({ name: 'Login' })
   })
 }
 </script>
 
 <template>
-  <header class="bg-danger text-white p-4">
+  <header class="text-white p-4">
     <div class="container text-center">
       <img alt="Vue logo" class="logo mb-3" src="@/assets/logo.svg" width="125" height="125" />
       <h1>¡Bienvenido a Mi App!</h1>
@@ -37,8 +37,10 @@ async function handleSignOut() {
 
 <style scoped>
 header {
-  position: relative;
-  line-height: 1.5;
+  background-color: #7c113a;
+  color: #fff;
+  padding: 4rem 0;
+  text-align: center;
 }
 
 .logo {
@@ -55,6 +57,38 @@ nav a {
   margin: 0 1rem;
 }
 
+button,
+nav a {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+nav a.btn-light {
+  background-color: #f8f9fa;
+  border: 2px solid #7b1c2b;
+  color: #7b1c2b;
+  font-weight: bold;
+}
+
+nav a.btn-light:hover {
+  background-color: #6e1533;
+  color: #fff;
+
+}
+
+button.btn-warning {
+  background-color: #3d0417;
+  color: #ffffff;
+  border: none;
+  font-weight: bold;
+}
+
+button.btn-warning:hover {
+  background-color: #d6af13;
+  color: #fff;
+}
+
 @media (min-width: 768px) {
   header {
     display: flex;
@@ -67,6 +101,6 @@ h1 {
   text-align: center;
   margin-top: 2rem;
   font-size: 2rem;
-  color: #333;
+  color: #fff;
 }
 </style>
